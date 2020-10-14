@@ -13,19 +13,52 @@ const noLabel = "No Mask";
 const noEl = document.getElementById("no-container");
 const yesEl = document.getElementById("yes-container");
 
+const imgEl = document.getElementById("artImg");
+const gallery = document.getElementById("gallery");
 
-//random video
+// artworks
+const artWorks = [
+  {
+    name: 'Starry Night',
+    artist: 'Vincent van Gogh',
+    date: '1893',
+    location: 'Museum of Modern Art New York',
+    img: 'https://random-ize.com/random-art-gallery/starry-night.jpg'
+  },
+  {
+    name: 'Guernica',
+    artist: 'Pablo Picasso',
+    date: '1937',
+    location: '',
+    img: 'https://random-ize.com/random-art-gallery/guernica.jpg'
+  },
+  {
+    name: 'Whistlers Mother',
+    artist: 'James McNeill Whistler',
+    date: '1871',
+    location: 'Musée du Luxembourg Paris',
+    img: 'https://random-ize.com/random-art-gallery/whistlers-mother.jpg'
+  },
+  {
+    name: 'Forward Retreat',
+    artist: 'Tansey',
+    date: '1986',
+    location: 'Broad Art Foundation',
+    img: 'https://random-ize.com/random-art-gallery/forward-retreat.GIF'
+  }
+]
 
-let videoEl;
+// pick artwork
 
-function randomVideo() {
-  const videoNo = "vid" + (Math.floor(Math.random() * 3) + 1);
-  videoEl = document.getElementById(videoNo);
-  videoEl.classList.remove("hide");
-  videoEl.play();
-  console.log('video numer:' +  videoNo);
+function newArt() {
+  const randomArt = artWorks[Math.floor(Math.random() * artWorks.length)];
+  imgEl.src = randomArt.img;
+  if (randomArt.location == '') {
+    document.getElementById('description').textContent = `${randomArt.name} by ${randomArt.artist} (${randomArt.date})`;
+  } else {
+    document.getElementById('description').textContent = `${randomArt.name} by ${randomArt.artist} (${randomArt.date}) – ${randomArt.location}`;
+  }
 }
-
 
 //-------------------------------------------------------
 let model, webcam, labelContainer, maxPredictions;
@@ -42,17 +75,18 @@ function swapDivs(label) {
     // hide yes, show no
     noEl.classList.remove("hide");
     yesEl.classList.add("hide");
-    randomVideo();
+    gallery.classList.add("hide");
   } else if (label == yesLabel) {
     // hide no, show yes
     yesEl.classList.remove("hide");
+    gallery.classList.remove("hide");
     noEl.classList.add("hide");
-    videoEl.pause();
-    videoEl.classList.add("hide");
+    newArt();
   } else {
     // hide both
     noEl.classList.add("hide");
     yesEl.classList.add("hide");
+    gallery.classList.add("hide");
   }
 
   lastLabel = label;
