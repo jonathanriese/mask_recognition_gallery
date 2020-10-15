@@ -33,7 +33,7 @@ const artWorks = [
     img: 'https://random-ize.com/random-art-gallery/guernica.jpg'
   },
   {
-    name: 'Whistlers Mother',
+    name: "Whistler's Mother",
     artist: 'James McNeill Whistler',
     date: '1871',
     location: 'Musée du Luxembourg Paris',
@@ -45,7 +45,77 @@ const artWorks = [
     date: '1986',
     location: 'Broad Art Foundation',
     img: 'https://random-ize.com/random-art-gallery/forward-retreat.GIF'
-  }
+  },
+  {
+    name: 'Three Musicians',
+    artist: 'Pablo Picasso',
+    date: '1921',
+    location: 'Museum of Modern Art New York',
+    img: 'https://random-ize.com/random-art-gallery/three-musicians.jpg'
+  },
+  {
+    name: 'The Night Watch',
+    artist: 'Rembrandt',
+    date: '1642',
+    location: '',
+    img: 'https://random-ize.com/random-art-gallery/the-night-watch.jpg'
+  },
+  {
+    name: 'Death and the Maiden',
+    artist: 'Egon Schiele',
+    date: '1915',
+    location: 'Belvedere Museum Vienna',
+    img: 'https://random-ize.com/random-art-gallery/death-and-the-maiden.jpg'
+  },
+  {
+    name: 'Girl with a Pearl Earring',
+    artist: 'Johannes Vermeer',
+    date: '1665',
+    location: 'Mauritshuis Gallery in The Hague',
+    img: 'https://random-ize.com/random-art-gallery/girl-with-a-pearl-earring.jpg'
+  },
+  {
+    name: 'The Last Supper',
+    artist: 'Leonardo da Vinci',
+    date: '1497',
+    location: 'Santa Maria delle Grazie, Milan',
+    img: 'https://random-ize.com/random-art-gallery/the-last-supper.jpg'
+  },
+  {
+    name: 'American Gothic',
+    artist: 'Grant Wood',
+    date: '1930',
+    location: 'The Art Institute of Chicago',
+    img: 'https://random-ize.com/random-art-gallery/american-gothic.jpg'
+  },
+  {
+    name: 'Mona Lisa',
+    artist: 'Leonardo da Vinci',
+    date: '1503 - 1519',
+    location: 'Musee du Louvre Paris',
+    img: 'https://random-ize.com/random-art-gallery/mona-lisa.jpg'
+  },
+  {
+    name: 'The Grainstack',
+    artist: 'Claude Monet',
+    date: '1896',
+    location: 'Museum of Fine Arts Boston',
+    img: 'https://random-ize.com/random-art-gallery/the-grainstack.jpg'
+  },
+  {
+    name: "Portrait de l'Artiste sans Barbe",
+    artist: 'Vincent van Gogh',
+    date: '1889',
+    location: '',
+    img: 'https://random-ize.com/random-art-gallery/portrait-de-artiste-sans-barbe.jpg'
+  },
+  {
+    name: 'I and the Village',
+    artist: 'Chagall',
+    date: '1911',
+    location: 'Museum of Modern Art New York',
+    img: 'https://random-ize.com/random-art-gallery/i-and-the-village.jpg'
+  },
 ]
 
 // pick artwork
@@ -53,12 +123,15 @@ const artWorks = [
 function newArt() {
   const randomArt = artWorks[Math.floor(Math.random() * artWorks.length)];
   imgEl.src = randomArt.img;
+  document.getElementById('name').textContent = randomArt.name;
   if (randomArt.location == '') {
-    document.getElementById('description').textContent = `${randomArt.name} by ${randomArt.artist} (${randomArt.date})`;
+    document.getElementById('description').textContent = `by ${randomArt.artist} (${randomArt.date})`;
   } else {
-    document.getElementById('description').textContent = `${randomArt.name} by ${randomArt.artist} (${randomArt.date}) – ${randomArt.location}`;
+    document.getElementById('description').textContent = `by ${randomArt.artist} (${randomArt.date}) – ${randomArt.location}`;
   }
 }
+
+document.getElementById('next').onclick = function() {newArt()};
 
 //-------------------------------------------------------
 let model, webcam, labelContainer, maxPredictions;
@@ -78,10 +151,10 @@ function swapDivs(label) {
     gallery.classList.add("hide");
   } else if (label == yesLabel) {
     // hide no, show yes
+    newArt();
     yesEl.classList.remove("hide");
     gallery.classList.remove("hide");
     noEl.classList.add("hide");
-    newArt();
   } else {
     // hide both
     noEl.classList.add("hide");

@@ -1,7 +1,7 @@
 body{
-  font-family: sans-serif;
   overflow: hidden;
   font-family: 'Piazzolla', serif;
+  font-size: 16px;
 }
 
 .main{
@@ -64,8 +64,18 @@ body{
   color: white;
 }
 
-video {
-  z-index: 99;
-  width: 100%;
-  position: absolute;
+#next{
+  font-size: 10px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  background-color: white;
+  color:black;
+  margin-top: 2rem;
+  padding: 0 0.4rem 0.2rem 0.4rem;
+  cursor: pointer;
+}
+
+#next:hover {
+  background-color: black;
+  color: white;
 }
