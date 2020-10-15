@@ -116,6 +116,41 @@ const artWorks = [
     location: 'Museum of Modern Art New York',
     img: 'https://random-ize.com/random-art-gallery/i-and-the-village.jpg'
   },
+  {
+    name: 'The Son of Man',
+    artist: 'Rene Magritte',
+    date: '1964',
+    location: '',
+    img: 'https://random-ize.com/random-art-gallery/the-son-of-man.jpg'
+  },
+  {
+    name: 'Judith I',
+    artist: 'Gustav Klimt',
+    date: '1901',
+    location: 'Belvedere Museum Vienna',
+    img: 'https://random-ize.com/random-art-gallery/judith.jpg'
+  },
+  {
+    name: 'The Kiss',
+    artist: 'Gustav Klimt',
+    date: '1908',
+    location: '',
+    img: 'https://random-ize.com/random-art-gallery/the-kiss.jpg'
+  },
+  {
+    name: 'The Last Judgement',
+    artist: 'Hieronymus Bosch',
+    date: '1505',
+    location: 'Gemäldegalerie der Akademie der Bildenden Kunste Wien',
+    img: 'https://random-ize.com/random-art-gallery/the-last-judgement.jpg'
+  },
+  {
+    name: 'Nimphee',
+    artist: 'Claude Monet',
+    date: '1926',
+    location: 'Orangerie Paris',
+    img: 'https://random-ize.com/random-art-gallery/nimphee.jpg'
+  },
 ]
 
 // pick artwork
